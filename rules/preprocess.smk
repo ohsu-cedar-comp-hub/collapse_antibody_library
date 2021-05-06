@@ -29,8 +29,3 @@ rule trim_extra_R2:
         "../envs/trimmomatic.yaml"
     shell:
         "trimmomatic SE {input} {output} TAILCROP:95"
-
-    shell:
-        """
-        
-        """
