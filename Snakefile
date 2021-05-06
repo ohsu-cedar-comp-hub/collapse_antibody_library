@@ -8,8 +8,6 @@ import json
 timestamp = ('{:%Y-%m-%d_%H:%M:%S}'.format(datetime.datetime.now()))
 
 configfile:"omic_config.yaml"
-project_id = config["project_id"]
-
 
 SAMPLES, = glob_wildcards("samples/raw/{sample}_R1.fastq.gz")
 
@@ -39,5 +37,8 @@ for sample in SAMPLES:
 
 rule all:
     input:
+        expand("samples/fastqc/{sample}/{sample}_{fastq_ext}_fastqc.zip", sample = SAMPLES, fastq_ext = fastq_ext),
+        "results/compiled_antibody_counts.txt"
 
 include: "rules/preprocess.smk"
+include: "rules/quantify.smk"

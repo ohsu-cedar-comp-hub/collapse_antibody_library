@@ -10,12 +10,52 @@
         "c" : 4,
         "mem" : 45000
     },
-    "first_rule" :
+    "fastqc" :
     {
-        "J" : "first_rule",
-        "e" : "logs/{rule}/{wildcards.sample}_%j.err",
-        "o" : "logs/{rule}/{wildcards.sample}_%j.out",
+        "J" : "fastqc",
+        "e" : "logs/fastqc/{wildcards.sample}_%j.err",
+        "o" : "logs/fastqc/{wildcards.sample}_%j.out",
+        "c" : 6,
+        "mem" : 40000
+    },
+    "trim_extra_R1" :
+    {
+        "J" : "trim_extra_R1",
+        "e" : "logs/trim_extra_R1/{wildcards.sample}_%j.err",
+        "o" : "logs/trim_extra_R1/{wildcards.sample}_%j.out",
         "c" : 1,
-        "mem" : 54000
+        "mem" : 1000
+    },
+    "trim_extra_R2" :
+    {
+        "J" : "trim_extra_R2",
+        "e" : "logs/trim_extra_R2/{wildcards.sample}_%j.err",
+        "o" : "logs/trim_extra_R2/{wildcards.sample}_%j.out",
+        "c" : 1,
+        "mem" : 1000
+    },
+    "trim_antibody_sqnc" :
+    {
+        "J" : "trim_antibody_sqnc",
+        "e" : "logs/trim_antibody_sqnc/{wildcards.sample}_%j.err",
+        "o" : "logs/trim_antibody_sqnc/{wildcards.sample}_%j.out",
+        "c" : 1,
+        "mem" : 1000
+    },
+    "collapse" :
+    {
+        "J" : "collapse",
+        "e" : "logs/collapse/{wildcards.sample}_%j.err",
+        "o" : "logs/collapse/{wildcards.sample}_%j.out",
+        "c" : 1,
+        "mem" : 5400
+    },
+    "compile" :
+    {
+        "J" : "compile",
+        "e" : "logs/compile/{wildcards.sample}_%j.err",
+        "o" : "logs/compile/{wildcards.sample}_%j.out",
+        "c" : 1,
+        "mem" : 5400
     }
 }
