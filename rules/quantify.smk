@@ -21,7 +21,5 @@ rule compile:
         expand("samples/antibody_counts/{sample}_counts.txt", sample = SAMPLES)
     output:
         "results/compiled_antibody_counts.txt"
-    conda:
-        "../envs/stringr.yaml"
     script:
         "../scripts/merge_counts.R"
