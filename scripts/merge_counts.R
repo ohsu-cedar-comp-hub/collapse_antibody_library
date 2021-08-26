@@ -1,9 +1,8 @@
-library(stringr)
 files <- unlist(snakemake@input)
 
 for (i in 1:length(files)) {
     samp <- unlist(strsplit(files[i], "/"))[3]
-    sampname <- str_replace(samp,"_counts.txt","")
+    sampname <- sampname <- gsub("_counts.txt","",samp)
     df <- read.table(files[i],header = F,stringsAsFactors=F)
     df <- data.frame(df$V2,df$V1)
     colnames(df) <- c("antibody_sequence",sampname)
